@@ -1,4 +1,4 @@
-# AmmortizationSchedule
+# AmortizationSchedule
 Programa, sudaranti anuitetinį paskolos grąžinimo grafiką csv formatu. 
 
 Paleidimas:
