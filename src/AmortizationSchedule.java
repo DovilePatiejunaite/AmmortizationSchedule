@@ -13,9 +13,10 @@ public class AmortizationSchedule {
     private int paymentNumber = 1;
     private int months;
 
+    //Constructors
 
+    //Default constructor
     AmortizationSchedule(){
-
     }
 
     AmortizationSchedule(Date date, double interestRate, BigDecimal loanSize, int numberOfIncomes, int months){
@@ -75,7 +76,7 @@ public class AmortizationSchedule {
         return months;
     }
 
-
+    //Generating amortization scheduleg
     public void generateSchedule(PrintWriter printWriter){
         //Calculating monthly interest rate from annual interest rate
         double monthlyRate = getInterestRate()/100/12;
@@ -87,15 +88,13 @@ public class AmortizationSchedule {
         //Rounding monthly payment - two decimals after comma
         monthlyPayment = monthlyPayment.setScale(2, RoundingMode.HALF_UP);
 
-        //Generating amortization schedule
+
         //Months - how many payments of loan we want to see on schedule (only first ten, all, etc.)
         //If number of payments to show is set to 0, showing all
-
         if(getMonths() == 0){
              setMonths(getNumberOfIncomes());
         }
         for(int i = 1; i<= getMonths(); i++){
-
             //Keeping correct format for date
             String date = new SimpleDateFormat("MM/dd/yyyy").format(getDate());
 

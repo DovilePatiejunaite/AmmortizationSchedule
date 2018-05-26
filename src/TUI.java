@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 // Class of text user interface
 public class TUI {
-
     private Scanner input = new Scanner(System.in);
+
     //Starting menu
     public void start(){
         showMenu();
@@ -38,7 +38,6 @@ public class TUI {
     }
 
     //Simple menu of program functions
-
     private void showMenu(){
         System.out.println("\n**********************************************************************");
         System.out.println("*                     Paskolos grąžinimo grafikas                    *");
@@ -53,13 +52,13 @@ public class TUI {
 
     //First task: date = 2017-04-15, loanSize = 5000, numberOfIncomes = 24, interestRate = 12.
     //Date format 04/15/2017
-
     private void task1(){
         try {
             //Writing csv file with initialized parameters for ammortization schedule.
             FileWriter fileWriter = new FileWriter("task1.csv");
             PrintWriter printWriter = new PrintWriter(fileWriter);
-            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"principal payment\";\"Interest payment\";\"Total payment\";\"Interest rate\"");
+            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"principal payment\";" +
+                    "\"Interest payment\";\"Total payment\";\"Interest rate\"");
             Date date = new SimpleDateFormat("MM/dd/yyyy").parse("04/15/2017");
             BigDecimal loanSize = new BigDecimal("5000");
             AmortizationSchedule a = new AmortizationSchedule(date,12,loanSize,24,0);
@@ -77,7 +76,8 @@ public class TUI {
             //Writing to csv file.
             FileWriter fileWriter = new FileWriter("task2.csv");
             PrintWriter printWriter = new PrintWriter(fileWriter);
-            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"Principal payment\";\"Interest payment\";\"Total payment\";\"Interest rate\"");
+            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"Principal payment\";" +
+                    "\"Interest payment\";\"Total payment\";\"Interest rate\"");
 
             //Initializing schedule parameters.
             Date date = new SimpleDateFormat("MM/dd/yyyy").parse("04/15/2017");
@@ -100,7 +100,7 @@ public class TUI {
         }
     }
 
-    // Generating new schedule with user parameters.
+    //Generating new schedule with user parameters.
     private void newSchedule(){
         try {
             AmortizationSchedule a = new AmortizationSchedule();
@@ -130,7 +130,8 @@ public class TUI {
             //Generating new csv file with ammortization schedule.
             FileWriter fileWriter = new FileWriter("newSchedule.csv");
             PrintWriter printWriter = new PrintWriter(fileWriter);
-            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"Principal payment\";\"Interest payment\";\"Total payment\";\"Interest rate\"");
+            printWriter.println("\"Payment #\";\"Payment date\";\"Remaining amount\";\"Principal payment\";" +
+                    "\"Interest payment\";\"Total payment\";\"Interest rate\"");
             a.generateSchedule(printWriter);
             printWriter.close();
         } catch (ParseException e) {
